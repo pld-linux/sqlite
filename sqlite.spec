@@ -1,7 +1,7 @@
 Summary:	SQLite library
 Summary(pl):	Biblioteka SQLite
 Name:		sqlite
-Version:	2.4.12
+Version:	2.5.4
 Release:	1
 License:	LGPL
 Group:		Libraries
