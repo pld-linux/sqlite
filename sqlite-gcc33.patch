@@ -1,0 +1,57 @@
+--- sqlite/Makefile.in.orig	Mon Jun  9 15:16:15 2003
++++ sqlite/Makefile.in	Mon Jun  9 15:20:23 2003
+@@ -219,7 +219,7 @@
+ config.h:	
+ 	echo '#include <stdio.h>' >temp.c
+ 	echo 'int main(){printf(' >>temp.c
+-	echo '"#define SQLITE_PTR_SZ %d\n",sizeof(char*));' >>temp.c
++	echo -e '"#define SQLITE_PTR_SZ %d\\n",sizeof(char*));' >>temp.c
+ 	echo 'exit(0);}' >>temp.c
+ 	$(BCC) -o temp temp.c
+ 	./temp >config.h
+--- sqlite/tool/lemon.c.orig	Wed Aug 14 23:17:55 2002
++++ sqlite/tool/lemon.c	Mon Jun  9 15:29:22 2003
+@@ -7,7 +7,7 @@
+ ** The author of this program disclaims copyright.
+ */
+ #include <stdio.h>
+-#include <varargs.h>
++#include <stdarg.h>
+ #include <string.h>
+ #include <ctype.h>
+ 
+@@ -70,7 +70,7 @@
+ void Configlist_reset(/* void */);
+ 
+ /********* From the file "error.h" ***************************************/
+-void ErrorMsg( /* char *, int, char *, ... */ );
++void ErrorMsg(char *, int, char *, ...);
+ 
+ /****** From the file "option.h" ******************************************/
+ struct s_options {
+@@ -1102,12 +1102,8 @@
+ #define ERRMSGSIZE  10000 /* Hope this is big enough.  No way to error check */
+ #define LINEWIDTH      79 /* Max width of any output line */
+ #define PREFIXLIMIT    30 /* Max width of the prefix on each line */
+-void ErrorMsg(va_alist)
+-va_dcl
++void ErrorMsg(char *filename, int lineno, char *format, ...)
+ {
+-  char *filename;
+-  int lineno;
+-  char *format;
+   char errmsg[ERRMSGSIZE];
+   char prefix[PREFIXLIMIT+10];
+   int errmsgsize;
+@@ -1116,10 +1112,7 @@
+   va_list ap;
+   int end, restart, base;
+ 
+-  va_start(ap);
+-  filename = va_arg(ap,char*);
+-  lineno = va_arg(ap,int);
+-  format = va_arg(ap,char*);
++  va_start(ap, format);
+   /* Prepare a prefix to be prepended to every output line */
+   if( lineno>0 ){
+     sprintf(prefix,"%.*s:%d: ",PREFIXLIMIT-10,filename,lineno);
