@@ -14,6 +14,7 @@ Group(uk):	Б╕бл╕отеки
 Source0:	http://www.hwaci.com/sq/sqlite/%{name}.tar.gz
 Patch0:		%{name}-DESTDIR.patch
 URL:		http://www.hwaci.com/sq/sqlite
+BuildRequires:	readline-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
