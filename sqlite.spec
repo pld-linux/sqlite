@@ -125,7 +125,7 @@ install sqlite.1 $RPM_BUILD_ROOT%{_mandir}/man1
 gzip -9nf README
 
 %clean
-#rm -rf $RPM_BUILD_ROOT
+rm -rf $RPM_BUILD_ROOT
 
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
