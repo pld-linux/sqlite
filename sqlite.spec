@@ -5,8 +5,9 @@ Version:	2.8.4
 Release:	0.1
 License:	LGPL
 Group:		Libraries
-Source0:	http://www.hwaci.com/sw/sqlite/%{name}-%{version}.tar.gz
+Source0:	http://sqlite.org/%{name}-%{version}.tar.gz
 # Source0-md5:	317021b2ab5c81cc658228c18d9cba76
+# Source0Download: http://sqlite.org/download.html
 Patch0:		%{name}-DESTDIR.patch
 URL:		http://sqlite.org/
 BuildRequires:	readline-devel
