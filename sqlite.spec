@@ -8,7 +8,7 @@ Group:		Libraries
 Source0:	http://www.hwaci.com/sw/sqlite/%{name}-%{version}.tar.gz
 # Source0-md5:	317021b2ab5c81cc658228c18d9cba76
 Patch0:		%{name}-DESTDIR.patch
-URL:		http://www.hwaci.com/sw/sqlite/
+URL:		http://sqlite.org/
 BuildRequires:	readline-devel
 BuildRequires:	tcl-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
