@@ -134,7 +134,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README
-%defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/sqlite
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %{_mandir}/man1/sqlite.1*
