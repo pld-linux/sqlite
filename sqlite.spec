@@ -1,6 +1,8 @@
+# TODO:
+# - add subpackage with TCL lib
 #
 # Conditional build:
-%bcond_with	utf8 # build with UTF-8 support
+%bcond_without	tests # don't run tests
 #
 Summary:	SQLite library
 Summary(pl):	Biblioteka SQLite
@@ -12,6 +14,7 @@ Group:		Libraries
 # Source0Download: http://sqlite.org/download.html
 Source0:	http://sqlite.org/%{name}-%{version}.tar.gz
 # Source0-md5:	4133cbac9320f6f674700ed15986f4ff
+Patch0:		%{name}-build.patch
 URL:		http://sqlite.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -119,6 +122,8 @@ Pakiet zawiera statyczne biblioteki SQLite.
 
 %prep
 %setup -q -n %{name}
+%patch0 -p1
+sed -i 's/mkdir doc/#mkdir doc/' Makefile*
 
 %build
 %{__libtoolize}
@@ -126,10 +131,11 @@ cp -f /usr/share/automake/config.sub .
 %{__aclocal}
 %{__autoconf}
 %configure \
-	%{?with_utf8:--enable-utf8}
-sed -i 's/mkdir doc/#mkdir doc/' Makefile
+	--enable-threadsafe
 %{__make}
 %{__make} doc
+
+%{?with_tests:%{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
