@@ -1,7 +1,7 @@
 %bcond_with	utf8 # build with UTF-8 support
 Summary:	SQLite library
 Summary(pl):	Biblioteka SQLite
-Name:		sqlite2
+Name:		sqlite
 Version:	2.8.15
 Release:	1
 License:	LGPL
