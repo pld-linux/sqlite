@@ -5,13 +5,6 @@ Version:	2.2.5
 Release:	1
 License:	LGPL
 Group:		Libraries
-Group(de):	Libraries
-Group(es):	Bibliotecas
-Group(fr):	Librairies
-Group(pl):	Biblioteki
-Group(pt_BR):	Bibliotecas
-Group(ru):	Библиотеки
-Group(uk):	Б╕бл╕отеки
 Source0:	http://www.hwaci.com/sq/sqlite/%{name}.tar.gz
 Patch0:		%{name}-DESTDIR.patch
 URL:		http://www.hwaci.com/sq/sqlite/
@@ -46,13 +39,6 @@ program do zarz╠dzania bazami danych.
 Summary:	Header files for SQLite development
 Summary(pl):	Pliki nagЁСwkowe SQLite
 Group:		Development/Libraries
-Group(de):	Entwicklung/Libraries
-Group(es):	Desarrollo/Bibliotecas
-Group(fr):	Development/Librairies
-Group(pl):	Programowanie/Biblioteki
-Group(pt_BR):	Desenvolvimento/Bibliotecas
-Group(ru):	Разработка/Библиотеки
-Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name} = %{version}
 
 %description devel
@@ -89,13 +75,6 @@ u©ywaj╠cych biblioteki SQLite.
 Summary:	Static libraries for SQLite development
 Summary(pl):	Statyczne biblioteki SQLite
 Group:		Development/Libraries
-Group(de):	Entwicklung/Libraries
-Group(es):	Desarrollo/Bibliotecas
-Group(fr):	Development/Librairies
-Group(pl):	Programowanie/Biblioteki
-Group(pt_BR):	Desenvolvimento/Bibliotecas
-Group(ru):	Разработка/Библиотеки
-Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name}-devel = %{version}
 
 %description static
