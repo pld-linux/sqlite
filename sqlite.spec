@@ -6,6 +6,7 @@ Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://www.hwaci.com/sw/sqlite/%{name}-%{version}.tar.gz
+# Source0-md5: 56d5c7d1efde7f239b29ee151712c0b2
 Patch0:		%{name}-DESTDIR.patch
 URL:		http://www.hwaci.com/sw/sqlite/
 BuildRequires:	readline-devel
