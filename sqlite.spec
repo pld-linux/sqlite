@@ -1,4 +1,7 @@
+#
+# Conditional build:
 %bcond_with	utf8 # build with UTF-8 support
+#
 Summary:	SQLite library
 Summary(pl):	Biblioteka SQLite
 Name:		sqlite
@@ -46,7 +49,7 @@ bazami danych.
 Summary:	Header files for SQLite development
 Summary(pl):	Pliki nag³ówkowe SQLite
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 SQLite is a C library that implements an SQL database engine. A large
@@ -83,7 +86,7 @@ u¿ywaj±cych biblioteki SQLite.
 Summary:	Static libraries for SQLite development
 Summary(pl):	Statyczne biblioteki SQLite
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 SQLite is a C library that implements an SQL database engine. A large
@@ -132,7 +135,8 @@ sed -i 's/mkdir doc/#mkdir doc/' Makefile
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_includedir},%{_libdir},%{_mandir}/man1}
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 install sqlite.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
@@ -152,9 +156,9 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %doc doc/*
-%{_includedir}/sqlite3.h
+%attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
-%{_libdir}/lib*.so
+%{_includedir}/sqlite3.h
 %{_pkgconfigdir}/*.pc
 
 %files static
