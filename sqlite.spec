@@ -1,8 +1,8 @@
 Summary:	SQLite library
 Summary(pl):	Biblioteka SQLite
 Name:		sqlite
-Version:	2.6.2
-Release:	2
+Version:	2.8.0
+Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://www.hwaci.com/sw/sqlite/%{name}-%{version}.tar.gz
