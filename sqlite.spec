@@ -5,14 +5,13 @@
 Summary:	SQLite library
 Summary(pl):	Biblioteka SQLite
 Name:		sqlite
-Version:	3.0.5
+Version:	3.0.7
 Release:	1
 License:	LGPL
 Group:		Libraries
 # Source0Download: http://sqlite.org/download.html
 Source0:	http://sqlite.org/%{name}-%{version}.tar.gz
-# Source0-md5:	4133cbac9320f6f674700ed15986f4ff
-Patch0:		%{name}-build.patch
+# Source0-md5:	7a41d760045fef3768cce65b50a4d0f8
 URL:		http://sqlite.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -120,7 +119,6 @@ Pakiet zawiera statyczne biblioteki SQLite.
 
 %prep
 %setup -q -n %{name}
-%patch0 -p1
 sed -i 's/mkdir doc/#mkdir doc/' Makefile*
 
 %build
