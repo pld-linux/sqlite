@@ -1,3 +1,4 @@
+%bcond_with	utf8 # build with UTF-8 support
 Summary:	SQLite library
 Summary(pl):	Biblioteka SQLite
 Name:		sqlite
@@ -125,7 +126,8 @@ Pakiet zawiera statyczne biblioteki SQLite.
 cp -f /usr/share/automake/config.sub .
 %{__aclocal}
 %{__autoconf}
-%configure
+%configure \
+	%{?with_utf8:--enable-utf8}
 %{__make}
 %{__make} doc
 
