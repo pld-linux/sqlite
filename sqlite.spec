@@ -1,14 +1,13 @@
 Summary:	SQLite library
 Summary(pl):	Biblioteka SQLite
 Name:		sqlite
-Version:	2.8.0
-Release:	1
+Version:	2.8.4
+Release:	0.1
 License:	LGPL
 Group:		Libraries
 Source0:	http://www.hwaci.com/sw/sqlite/%{name}-%{version}.tar.gz
-# Source0-md5: 56d5c7d1efde7f239b29ee151712c0b2
+# Source0-md5:	317021b2ab5c81cc658228c18d9cba76
 Patch0:		%{name}-DESTDIR.patch
-Patch1:		%{name}-gcc33.patch
 URL:		http://www.hwaci.com/sw/sqlite/
 BuildRequires:	readline-devel
 BuildRequires:	tcl-devel
@@ -114,11 +113,11 @@ Pakiet zawiera statyczne biblioteki SQLite.
 %prep
 %setup -q -n %{name}
 %patch0 -p1
-%patch1 -p1
 
 %build
 %configure
 %{__make}
+%{__make} doc
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -143,9 +142,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
+%doc doc/*
 %{_includedir}/sqlite.h
 %{_libdir}/lib*.la
 %{_libdir}/lib*.so
+%{_pkgconfigdir}/*.pc
 
 %files static
 %defattr(644,root,root,755)
