@@ -1,4 +1,5 @@
 Summary:	SQLite library
+Summary(pl):	Biblioteka SQLite
 Name:		sqlite
 Version:	2.2.5
 Release:	1
@@ -13,7 +14,7 @@ Group(ru):	‚…¬Ã…œ‘≈À…
 Group(uk):	‚¶¬Ã¶œ‘≈À…
 Source0:	http://www.hwaci.com/sq/sqlite/%{name}.tar.gz
 Patch0:		%{name}-DESTDIR.patch
-URL:		http://www.hwaci.com/sq/sqlite
+URL:		http://www.hwaci.com/sq/sqlite/
 BuildRequires:	readline-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -43,6 +44,7 @@ program do zarz±dzania bazami danych.
 
 %package devel
 Summary:	Header files for SQLite development
+Summary(pl):	Pliki nag≥Ûwkowe SQLite
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
 Group(es):	Desarrollo/Bibliotecas
@@ -67,7 +69,7 @@ command-line tool for interacting with SQLite databases and SQLite
 bindings for Tcl/Tk.
 
 This package contains the header files needed to develop programs that
-use these Atlas-C++
+use these SQLite.
 
 %description devel -l pl
 SQLite jest bibliotek± jÍzyka C, ktÛra implementuje silnik baz danych SQL
@@ -85,6 +87,7 @@ uøywaj±cych biblioteki SQLite.
 
 %package static
 Summary:	Static libraries for SQLite development
+Summary(pl):	Statyczne biblioteki SQLite
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
 Group(es):	Desarrollo/Bibliotecas
@@ -108,7 +111,7 @@ addition to the C library, the SQLite distribution includes a
 command-line tool for interacting with SQLite databases and SQLite
 bindings for Tcl/Tk.
 
-This package contains the static Atlas-C++ libraries.
+This package contains the static SQLite libraries.
 
 %description static -l pl
 SQLite jest bibliotek± jÍzyka C, ktÛra implementuje silnik baz danych SQL
@@ -121,7 +124,7 @@ SQLite jest szybsza od duøych serwerÛw bazodanowych przy wiÍkszo∂ci operacji
 na bazie danych. Dodatkowo oprÛcz biblioteki jezyka C, dostarczany jest
 program do zarz±dzania bazami danych.
 
-Pakiet zawiera statyczne biblioteki SQLite
+Pakiet zawiera statyczne biblioteki SQLite.
 
 %prep
 %setup -q -n %{name}
