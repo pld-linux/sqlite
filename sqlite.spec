@@ -1,7 +1,7 @@
 Summary:	SQLite library
 Summary(pl):	Biblioteka SQLite
 Name:		sqlite
-Version:	2.6.1
+Version:	2.6.2
 Release:	1
 License:	LGPL
 Group:		Libraries
