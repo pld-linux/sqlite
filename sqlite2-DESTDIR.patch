@@ -1,6 +1,6 @@
 diff -burN sqlite.orig/Makefile.in sqlite/Makefile.in
---- sqlite.orig/Makefile.in	2003-12-23 16:50:23.000000000 +0100
-+++ sqlite/Makefile.in	2003-12-23 16:52:02.000000000 +0100
+--- sqlite.orig/Makefile.in	2004-01-06 13:22:10.000000000 +0100
++++ sqlite/Makefile.in	2004-01-06 13:24:21.000000000 +0100
 @@ -12,6 +12,8 @@
  # at the beginning of configure.in for additional information.
  #
@@ -10,14 +10,14 @@ diff -burN sqlite.orig/Makefile.in sqlite/Makefile.in
  # The toplevel directory of the source tree.  This is the directory
  # that contains this "Makefile.in" and the "configure.in" script.
  #
-@@ -449,14 +451,14 @@
+@@ -450,14 +452,14 @@
  	mv $(DOC) doc
  
- install:	sqlite libsqlite.la sqlite.h
+ install:	sqlite@TARGET_EXEEXT@ libsqlite.la sqlite.h
 -	$(INSTALL) -d $(exec_prefix)/lib
 -	$(LIBTOOL) $(INSTALL) libsqlite.la $(exec_prefix)/lib
 -	$(INSTALL) -d $(exec_prefix)/bin
--	$(LIBTOOL) $(INSTALL) sqlite $(exec_prefix)/bin
+-	$(LIBTOOL) $(INSTALL) sqlite@TARGET_EXEEXT@ $(exec_prefix)/bin
 -	$(INSTALL) -d $(prefix)/include
 -	$(INSTALL) -m 0644 sqlite.h $(prefix)/include
 -	$(INSTALL) -d $(exec_prefix)/lib/pkgconfig; 
@@ -25,11 +25,11 @@ diff -burN sqlite.orig/Makefile.in sqlite/Makefile.in
 +	$(INSTALL) -d $(DESTDIR)$(exec_prefix)/lib
 +	$(LIBTOOL) $(INSTALL) libsqlite.la $(DESTDIR)$(exec_prefix)/lib
 +	$(INSTALL) -d $(DESTDIR)$(exec_prefix)/bin
-+	$(LIBTOOL) $(INSTALL) sqlite $(DESTDIR)$(exec_prefix)/bin
++	$(LIBTOOL) $(INSTALL) sqlite@TARGET_EXEEXT@ $(DESTDIR)$(exec_prefix)/bin
 +	$(INSTALL) -d $(DESTDIR)$(prefix)/include
 +	$(INSTALL) -m 0644 sqlite.h $(DESTDIR)$(prefix)/include
 +	$(INSTALL) -d $(DESTDIR)$(exec_prefix)/lib/pkgconfig; 
 +	$(INSTALL) -m 0644 sqlite.pc $(DESTDIR)$(exec_prefix)/lib/pkgconfig; 
  
  clean:	
- 	rm -f *.lo *.la *.o sqlite libsqlite.la sqlite.h opcodes.*
+ 	rm -f *.lo *.la *.o sqlite@TARGET_EXEEXT@ libsqlite.la sqlite.h opcodes.*

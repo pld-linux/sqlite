@@ -1,6 +1,15 @@
---- sqlite/Makefile.in~	2004-12-27 20:08:30.287137784 +0100
-+++ sqlite/Makefile.in	2004-12-27 20:11:19.376432304 +0100
-@@ -178,17 +178,17 @@
+diff -burN sqlite.orig/Makefile.in sqlite/Makefile.in
+--- sqlite.orig/Makefile.in	2004-01-06 13:22:10.000000000 +0100
++++ sqlite/Makefile.in	2004-01-06 13:30:06.000000000 +0100
+@@ -32,6 +32,7 @@
+ #
+ prefix = @prefix@
+ exec_prefix = @exec_prefix@
++libdir	= @libdir@
+ INSTALL = @INSTALL@
+ LIBTOOL = ./libtool
+ RELEASE = @ALLOWRELEASE@
+@@ -177,17 +178,17 @@
            | awk '{print $$5,$$6}' >last_change
  
  libsqlite.la:	$(LIBOBJ)
@@ -14,23 +23,23 @@
 +		libsqlite.la $(LIBTCL) -rpath $(libdir) \
  		-version-info "8:6:8"
  
- sqlite:	$(TOP)/src/shell.c libsqlite.la sqlite.h
+ sqlite@TARGET_EXEEXT@:	$(TOP)/src/shell.c libsqlite.la sqlite.h
  	$(LIBTOOL) $(TCC) $(READLINE_FLAGS) -o sqlite $(TOP)/src/shell.c \
 -		libsqlite.la $(LIBREADLINE) -rpath $(exec_prefix)/lib
 +		libsqlite.la $(LIBREADLINE) -rpath $(libdir)
  
  # This target creates a directory named "tsrc" and fills it with
  # copies of all of the C source code and header files needed to
-@@ -451,14 +451,14 @@
+@@ -450,14 +451,14 @@
  	mv $(DOC) doc
  
- install:	sqlite libsqlite.la sqlite.h
+ install:	sqlite@TARGET_EXEEXT@ libsqlite.la sqlite.h
 -	$(INSTALL) -d $(DESTDIR)$(exec_prefix)/lib
 -	$(LIBTOOL) $(INSTALL) libsqlite.la $(DESTDIR)$(exec_prefix)/lib
 +	$(INSTALL) -d $(DESTDIR)$(libdir)
 +	$(LIBTOOL) $(INSTALL) libsqlite.la $(DESTDIR)$(libdir)
  	$(INSTALL) -d $(DESTDIR)$(exec_prefix)/bin
- 	$(LIBTOOL) $(INSTALL) sqlite $(DESTDIR)$(exec_prefix)/bin
+ 	$(LIBTOOL) $(INSTALL) sqlite@TARGET_EXEEXT@ $(DESTDIR)$(exec_prefix)/bin
  	$(INSTALL) -d $(DESTDIR)$(prefix)/include
  	$(INSTALL) -m 0644 sqlite.h $(DESTDIR)$(prefix)/include
 -	$(INSTALL) -d $(DESTDIR)$(exec_prefix)/lib/pkgconfig; 
@@ -39,14 +48,4 @@
 +	$(INSTALL) -m 0644 sqlite.pc $(DESTDIR)$(libdir)/pkgconfig; 
  
  clean:	
- 	rm -f *.lo *.la *.o sqlite libsqlite.la sqlite.h opcodes.*
---- sqlite/Makefile.in~	2004-12-27 20:12:16.276782136 +0100
-+++ sqlite/Makefile.in	2004-12-27 20:14:49.756449680 +0100
-@@ -34,6 +34,7 @@
- #
- prefix = @prefix@
- exec_prefix = @exec_prefix@
-+libdir = @libdir@
- INSTALL = @INSTALL@
- LIBTOOL = ./libtool
- RELEASE = @ALLOWRELEASE@
+ 	rm -f *.lo *.la *.o sqlite@TARGET_EXEEXT@ libsqlite.la sqlite.h opcodes.*
