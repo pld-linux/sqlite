@@ -1,13 +1,13 @@
 Summary:	SQLite library
 Summary(pl):	Biblioteka SQLite
 Name:		sqlite
-Version:	2.8.6
+Version:	2.8.8
 Release:	0.1
 License:	LGPL
 Group:		Libraries
 # Source0Download: http://sqlite.org/download.html
 Source0:	http://sqlite.org/%{name}-%{version}.tar.gz
-# Source0-md5:	3047e24370d7e49d7bfd9728addf76cf
+# Source0-md5:	0fe7af15a9747727db81fe011bb46d4a
 Patch0:		%{name}-DESTDIR.patch
 URL:		http://sqlite.org/
 BuildRequires:	readline-devel
