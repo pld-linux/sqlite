@@ -1,0 +1,29 @@
+diff -urN sqlite.org/Makefile.in sqlite/Makefile.in
+--- sqlite.org/Makefile.in	2004-09-02 01:20:32.841015096 +0200
++++ sqlite/Makefile.in	2004-09-02 01:32:58.580645440 +0200
+@@ -60,6 +60,7 @@
+ # Should the database engine be compiled threadsafe
+ #
+ THREADSAFE = -DTHREADSAFE=@THREADSAFE@
++THREADLIB = -lpthread
+ 
+ # Flags controlling use of the in memory btree implementation
+ #
+@@ -188,7 +189,7 @@
+           | awk '{print $$5,$$6}' >last_change
+ 
+ libsqlite3.la:	$(LIBOBJ)
+-	$(LTLINK) -o libsqlite3.la $(LIBOBJ) ${RELEASE} -rpath @exec_prefix@/lib \
++	$(LTLINK) -o libsqlite3.la $(LIBOBJ) $(THREADLIB) ${RELEASE} -rpath @exec_prefix@/lib \
+ 		-version-info "8:6:8"
+ 
+ libtclsqlite3.la:	tclsqlite.lo libsqlite3.la
+@@ -387,7 +388,7 @@
+ 	$(LTLINK) $(TCL_FLAGS) -DOS_TEST=1 -DTCLSH=1 -DSQLITE_TEST=1 \
+ 		-o crashtest \
+ 		$(TESTSRC) $(TOP)/src/os_test.c $(TOP)/src/tclsqlite.c \
+-		libsqlite3.la $(LIBTCL) $(THREADLIB)
++		libsqlite3.la $(LIBTCL)
+ 
+ 
+ 
