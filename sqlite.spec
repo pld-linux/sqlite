@@ -7,7 +7,7 @@ Release:	1
 License:	LGPL
 Group:		Libraries
 # Source0Download: http://sqlite.org/download.html
-Source0:	http://sqlite.org/sqlite-%{version}.tar.gz
+Source0:	http://sqlite.org/%{name}-%{version}.tar.gz
 # Source0-md5:	0afa73e107bd106031d046c8ca6a94ab
 Patch0:		%{name}-DESTDIR.patch
 URL:		http://sqlite.org/
@@ -116,7 +116,7 @@ bazami danych.
 Pakiet zawiera statyczne biblioteki SQLite.
 
 %prep
-%setup -q -n sqlite
+%setup -q -n %{name}
 %patch0 -p1
 
 %build
