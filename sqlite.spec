@@ -2,14 +2,13 @@
 Summary:	SQLite library
 Summary(pl):	Biblioteka SQLite
 Name:		sqlite
-Version:	2.8.14
+Version:	3.0.5
 Release:	1
 License:	LGPL
 Group:		Libraries
 # Source0Download: http://sqlite.org/download.html
 Source0:	http://sqlite.org/%{name}-%{version}.tar.gz
-# Source0-md5:	113ce31cc31e0ab671bab590122e272a
-Patch0:		%{name}-DESTDIR.patch
+# Source0-md5:	4133cbac9320f6f674700ed15986f4ff
 URL:		http://sqlite.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -117,7 +116,6 @@ Pakiet zawiera statyczne biblioteki SQLite.
 
 %prep
 %setup -q -n %{name}
-%patch0 -p1
 
 %build
 %{__libtoolize}
@@ -126,6 +124,7 @@ cp -f /usr/share/automake/config.sub .
 %{__autoconf}
 %configure \
 	%{?with_utf8:--enable-utf8}
+sed -i 's/mkdir doc/#mkdir doc/' Makefile
 %{__make}
 %{__make} doc
 
@@ -146,14 +145,14 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README
-%attr(755,root,root) %{_bindir}/sqlite
+%attr(755,root,root) %{_bindir}/sqlite3
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %{_mandir}/man1/sqlite.1*
 
 %files devel
 %defattr(644,root,root,755)
 %doc doc/*
-%{_includedir}/sqlite.h
+%{_includedir}/sqlite3.h
 %{_libdir}/lib*.la
 %{_libdir}/lib*.so
 %{_pkgconfigdir}/*.pc
