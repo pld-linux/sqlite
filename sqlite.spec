@@ -5,9 +5,9 @@ Version:	2.4.12
 Release:	1
 License:	LGPL
 Group:		Libraries
-Source0:	http://www.hwaci.com/sq/sqlite/%{name}-%{version}.tar.gz
+Source0:	http://www.hwaci.com/sw/sqlite/%{name}-%{version}.tar.gz
 Patch0:		%{name}-DESTDIR.patch
-URL:		http://www.hwaci.com/sq/sqlite/
+URL:		http://www.hwaci.com/sw/sqlite/
 BuildRequires:	readline-devel
 BuildRequires:	tcl-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -125,8 +125,6 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_includedir},%{_libdir},%{_mandir}/man1}
 
 install sqlite.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
-gzip -9nf README
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -135,7 +133,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README.gz
+%doc README
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/sqlite
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
