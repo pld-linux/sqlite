@@ -2,15 +2,14 @@
 Summary:	SQLite library
 Summary(pl):	Biblioteka SQLite
 Name:		sqlite
-Version:	2.8.9
-Release:	0.1
+Version:	2.8.13
+Release:	1
 License:	LGPL
 Group:		Libraries
 # Source0Download: http://sqlite.org/download.html
 Source0:	http://sqlite.org/%{name}-%{version}.tar.gz
-# Source0-md5:	0b19989fe083fd547d3baff619d62cda
+# Source0-md5:	628fa52b5580b38ade75985dd4ba46dd
 Patch0:		%{name}-DESTDIR.patch
-Patch1:		%{name}-libdir.patch
 URL:		http://sqlite.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -119,7 +118,6 @@ Pakiet zawiera statyczne biblioteki SQLite.
 %prep
 %setup -q -n %{name}
 %patch0 -p1
-%patch1 -p1
 
 %build
 %{__libtoolize}
