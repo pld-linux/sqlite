@@ -1,25 +1,31 @@
 diff -Nru sqlite.orig/Makefile.in sqlite/Makefile.in
---- sqlite.orig/Makefile.in	Wed Jan  9 04:17:09 2002
-+++ sqlite/Makefile.in	Tue Jan 29 13:27:37 2002
+--- sqlite.orig/Makefile.in	Sun Jan 12 03:58:42 2003
++++ sqlite/Makefile.in	Fri Mar  7 10:30:32 2003
 @@ -12,6 +12,8 @@
  # at the beginning of configure.in for additional information.
  #
  
-+DESTDIR =
++DESTDIR = 
 +
  # The toplevel directory of the source tree.  This is the directory
  # that contains this "Makefile.in" and the "configure.in" script.
  #
-@@ -301,9 +303,9 @@
+@@ -392,12 +394,12 @@
  	mv $(DOC) doc
  
  install:	sqlite libsqlite.la sqlite.h
--	$(LIBTOOL) $(INSTALL) libsqlite.la $(prefix)/lib
--	$(LIBTOOL) $(INSTALL) sqlite $(prefix)/bin
+-	$(INSTALL) -d $(exec_prefix)/lib
+-	$(LIBTOOL) $(INSTALL) libsqlite.la $(exec_prefix)/lib
+-	$(INSTALL) -d $(exec_prefix)/bin
+-	$(LIBTOOL) $(INSTALL) sqlite $(exec_prefix)/bin
+-	$(INSTALL) -d $(prefix)/include
 -	$(INSTALL) -m 0644 sqlite.h $(prefix)/include
-+	$(LIBTOOL) $(INSTALL) libsqlite.la $(DESTDIR)$(prefix)/lib
-+	$(LIBTOOL) $(INSTALL) sqlite $(DESTDIR)$(prefix)/bin
++	$(INSTALL) -d $(DESTDIR)$(exec_prefix)/lib
++	$(LIBTOOL) $(INSTALL) libsqlite.la $(DESTDIR)$(exec_prefix)/lib
++	$(INSTALL) -d $(DESTDIR)$(exec_prefix)/bin
++	$(LIBTOOL) $(INSTALL) sqlite $(DESTDIR)$(exec_prefix)/bin
++	$(INSTALL) -d $(DESTDIR)$(prefix)/include
 +	$(INSTALL) -m 0644 sqlite.h $(DESTDIR)$(prefix)/include
  
  clean:	
- 	rm -f *.lo *.la *.o sqlite libsqlite.la sqlite.h
+ 	rm -f *.lo *.la *.o sqlite libsqlite.la sqlite.h opcodes.*
