@@ -1,17 +1,15 @@
-#
-# Conditional build:
-%bcond_without	tests # don't run tests
-#
+%bcond_with	utf8 # build with UTF-8 support
 Summary:	SQLite library
 Summary(pl):	Biblioteka SQLite
-Name:		sqlite
-Version:	3.0.8
+Name:		sqlite2
+Version:	2.8.15
 Release:	1
 License:	LGPL
 Group:		Libraries
 # Source0Download: http://sqlite.org/download.html
-Source0:	http://sqlite.org/%{name}-%{version}.tar.gz
-# Source0-md5:	b7dff1ec9bf4d08928c039b278630ba7
+Source0:	http://sqlite.org/sqlite-%{version}.tar.gz
+# Source0-md5:	0afa73e107bd106031d046c8ca6a94ab
+Patch0:		%{name}-DESTDIR.patch
 URL:		http://sqlite.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -118,8 +116,8 @@ bazami danych.
 Pakiet zawiera statyczne biblioteki SQLite.
 
 %prep
-%setup -q -n %{name}
-sed -i 's/mkdir doc/#mkdir doc/' Makefile*
+%setup -q -n sqlite
+%patch0 -p1
 
 %build
 %{__libtoolize}
@@ -127,11 +125,9 @@ cp -f /usr/share/automake/config.sub .
 %{__aclocal}
 %{__autoconf}
 %configure \
-	--enable-threadsafe
+	%{?with_utf8:--enable-utf8}
 %{__make}
 %{__make} doc
-
-%{?with_tests:%{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -151,7 +147,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README
-%attr(755,root,root) %{_bindir}/sqlite3
+%attr(755,root,root) %{_bindir}/sqlite
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %{_mandir}/man1/sqlite.1*
 
@@ -160,7 +156,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc doc/*
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
-%{_includedir}/sqlite3.h
+%{_includedir}/sqlite.h
 %{_pkgconfigdir}/*.pc
 
 %files static
