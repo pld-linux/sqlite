@@ -37,12 +37,12 @@ bindings for Tcl/Tk.
 SQLite jest bibliotek± jêzyka C, która implementuje silnik baz danych
 SQL (obs³ugiwana jest wiêkszo¶æ standardu SQL92). Ca³a baza danych
 przechowywana jest w jednym pliku. Aplikacje wykorzystuj±ce tê
-bibliotekê charakteryzuj± siê si³± i elastyczno¶cia SQLowych baz
+bibliotekê charakteryzuj± siê si³± i elastyczno¶ci± SQLowych baz
 danych bez konieczno¶ci utrzymywania osobnego serwera baz danych.
 Poniewa¿ pomijana jest komunikacja klient-serwer i dane s± zapisywane
 bezpo¶rednio na dysku, SQLite jest szybsza od du¿ych serwerów
 bazodanowych przy wiêkszo¶ci operacji na bazie danych. Dodatkowo
-oprócz biblioteki jezyka C, dostarczany jest program do zarz±dzania
+oprócz biblioteki jêzyka C, dostarczany jest program do zarz±dzania
 bazami danych.
 
 %package devel
@@ -71,12 +71,12 @@ use these SQLite.
 SQLite jest bibliotek± jêzyka C, która implementuje silnik baz danych
 SQL (obs³ugiwana jest wiêkszo¶æ standardu SQL92). Ca³a baza danych
 przechowywana jest w jednym pliku. Aplikacje wykorzystuj±ce tê
-bibliotekê charakteryzuj± siê si³± i elastyczno¶cia SQLowych baz
+bibliotekê charakteryzuj± siê si³± i elastyczno¶ci± SQLowych baz
 danych bez konieczno¶ci utrzymywania osobnego serwera baz danych.
 Poniewa¿ pomijana jest komunikacja klient-serwer i dane s± zapisywane
 bezpo¶rednio na dysku, SQLite jest szybsza od du¿ych serwerów
 bazodanowych przy wiêkszo¶ci operacji na bazie danych. Dodatkowo
-oprócz biblioteki jezyka C, dostarczany jest program do zarz±dzania
+oprócz biblioteki jêzyka C, dostarczany jest program do zarz±dzania
 bazami danych.
 
 Pakiet zawiera pliki nagówkowe niezbedne do kompilowania programów
@@ -107,12 +107,12 @@ This package contains the static SQLite libraries.
 SQLite jest bibliotek± jêzyka C, która implementuje silnik baz danych
 SQL (obs³ugiwana jest wiêkszo¶æ standardu SQL92). Ca³a baza danych
 przechowywana jest w jednym pliku. Aplikacje wykorzystuj±ce tê
-bibliotekê charakteryzuj± siê si³± i elastyczno¶cia SQLowych baz
+bibliotekê charakteryzuj± siê si³± i elastyczno¶ci± SQLowych baz
 danych bez konieczno¶ci utrzymywania osobnego serwera baz danych.
 Poniewa¿ pomijana jest komunikacja klient-serwer i dane s± zapisywane
 bezpo¶rednio na dysku, SQLite jest szybsza od du¿ych serwerów
 bazodanowych przy wiêkszo¶ci operacji na bazie danych. Dodatkowo
-oprócz biblioteki jezyka C, dostarczany jest program do zarz±dzania
+oprócz biblioteki jêzyka C, dostarczany jest program do zarz±dzania
 bazami danych.
 
 Pakiet zawiera statyczne biblioteki SQLite.
