@@ -1,11 +1,11 @@
 Summary:	SQLite library
 Summary(pl):	Biblioteka SQLite
 Name:		sqlite
-Version:	2.2.5
+Version:	2.4.3
 Release:	1
 License:	LGPL
 Group:		Libraries
-Source0:	http://www.hwaci.com/sq/sqlite/%{name}.tar.gz
+Source0:	http://www.hwaci.com/sq/sqlite/%{name}-%{version}.tar.gz
 Patch0:		%{name}-DESTDIR.patch
 URL:		http://www.hwaci.com/sq/sqlite/
 BuildRequires:	readline-devel
