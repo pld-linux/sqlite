@@ -1,5 +1,3 @@
-# TODO:
-# - add subpackage with TCL lib
 #
 # Conditional build:
 %bcond_without	tests # don't run tests
