@@ -9,6 +9,7 @@ Group:		Libraries
 Source0:	http://sqlite.org/%{name}-%{version}.tar.gz
 # Source0-md5:	0fe7af15a9747727db81fe011bb46d4a
 Patch0:		%{name}-DESTDIR.patch
+Patch1:		%{name}-libdir.patch
 URL:		http://sqlite.org/
 BuildRequires:	readline-devel
 BuildRequires:	tcl-devel
@@ -114,8 +115,13 @@ Pakiet zawiera statyczne biblioteki SQLite.
 %prep
 %setup -q -n %{name}
 %patch0 -p1
+%patch1 -p1
 
 %build
+%{__libtoolize}
+cp -f /usr/share/automake/config.sub .
+%{__aclocal}
+%{__autoconf}
 %configure
 %{__make}
 %{__make} doc
