@@ -8,6 +8,7 @@ Group:		Libraries
 Source0:	http://www.hwaci.com/sw/sqlite/%{name}-%{version}.tar.gz
 # Source0-md5: 56d5c7d1efde7f239b29ee151712c0b2
 Patch0:		%{name}-DESTDIR.patch
+Patch1:		%{name}-gcc33.patch
 URL:		http://www.hwaci.com/sw/sqlite/
 BuildRequires:	readline-devel
 BuildRequires:	tcl-devel
@@ -113,6 +114,7 @@ Pakiet zawiera statyczne biblioteki SQLite.
 %prep
 %setup -q -n %{name}
 %patch0 -p1
+%patch1 -p1
 
 %build
 %configure
