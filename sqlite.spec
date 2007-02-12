@@ -3,7 +3,7 @@
 %bcond_with	utf8	# build with UTF-8 support
 #
 Summary:	SQLite library
-Summary(pl.UTF-8):   Biblioteka SQLite
+Summary(pl.UTF-8):	Biblioteka SQLite
 Name:		sqlite
 Version:	2.8.17
 Release:	1
@@ -48,7 +48,7 @@ bazami danych.
 
 %package devel
 Summary:	Header files for SQLite development
-Summary(pl.UTF-8):   Pliki nagłówkowe SQLite
+Summary(pl.UTF-8):	Pliki nagłówkowe SQLite
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -85,7 +85,7 @@ używających biblioteki SQLite.
 
 %package static
 Summary:	Static libraries for SQLite development
-Summary(pl.UTF-8):   Statyczne biblioteki SQLite
+Summary(pl.UTF-8):	Statyczne biblioteki SQLite
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
