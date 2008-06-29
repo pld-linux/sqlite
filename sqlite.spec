@@ -16,7 +16,7 @@ Patch0:		%{name}-DESTDIR.patch
 URL:		http://sqlite.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	libtool >= 2.2
+BuildRequires:	libtool >= 2:2.2
 BuildRequires:	readline-devel
 BuildRequires:	tcl-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -123,7 +123,6 @@ Pakiet zawiera statyczne biblioteki SQLite.
 %patch0 -p1
 
 %build
-cp -f /usr/share/automake/config.sub .
 %{__libtoolize} --install
 %{__aclocal}
 %{__autoconf}
