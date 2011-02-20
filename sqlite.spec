@@ -122,6 +122,8 @@ Pakiet zawiera statyczne biblioteki SQLite.
 %setup -q
 %patch0 -p1
 
+find . -type d -name CVS | xargs %{__rm} -r
+
 %build
 %{__libtoolize} --install
 %{__aclocal}
@@ -152,17 +154,18 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README
 %attr(755,root,root) %{_bindir}/sqlite
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
+%attr(755,root,root) %{_libdir}/libsqlite.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libsqlite.so.0
 %{_mandir}/man1/sqlite.1*
 
 %files devel
 %defattr(644,root,root,755)
 %doc doc/*
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
+%attr(755,root,root) %{_libdir}/libsqlite.so
+%{_libdir}/libsqlite.la
 %{_includedir}/sqlite.h
-%{_pkgconfigdir}/*.pc
+%{_pkgconfigdir}/sqlite.pc
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libsqlite.a
