@@ -1,12 +1,12 @@
 #
 # Conditional build:
 %bcond_with	utf8	# build with UTF-8 support
-#
+
 Summary:	SQLite library
 Summary(pl.UTF-8):	Biblioteka SQLite
 Name:		sqlite
 Version:	2.8.17
-Release:	3
+Release:	4
 License:	LGPL
 Group:		Libraries
 # Source0Download: http://sqlite.org/download.html
@@ -142,7 +142,7 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_includedir},%{_libdir},%{_mandir}/man1}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install sqlite.1 $RPM_BUILD_ROOT%{_mandir}/man1
+cp -p sqlite.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
 %clean
 rm -rf $RPM_BUILD_ROOT
