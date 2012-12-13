@@ -1,0 +1,11 @@
+--- sqlite-2.8.17/src/shell.c~	2005-04-24 00:43:22.000000000 +0200
++++ sqlite-2.8.17/src/shell.c	2012-12-13 13:23:42.032107969 +0100
+@@ -692,7 +692,7 @@
+   }else
+ 
+   if( c=='h' && strncmp(azArg[0], "help", n)==0 ){
+-    fprintf(stderr,zHelp);
++    fprintf(stderr,"%s",zHelp);
+   }else
+ 
+   if( c=='i' && strncmp(azArg[0], "indices", n)==0 && nArg>1 ){

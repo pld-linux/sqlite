@@ -6,13 +6,14 @@ Summary:	SQLite library
 Summary(pl.UTF-8):	Biblioteka SQLite
 Name:		sqlite
 Version:	2.8.17
-Release:	4
+Release:	5
 License:	LGPL
 Group:		Libraries
 # Source0Download: http://sqlite.org/download.html
 Source0:	http://sqlite.org/%{name}-%{version}.tar.gz
 # Source0-md5:	838dbac20b56d2c4292e98848505a05b
 Patch0:		%{name}-DESTDIR.patch
+Patch1:		format-security.patch
 URL:		http://sqlite.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -121,6 +122,7 @@ Pakiet zawiera statyczne biblioteki SQLite.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 find . -type d -name CVS | xargs %{__rm} -r
 
