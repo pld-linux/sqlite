@@ -6,7 +6,7 @@ Summary:	SQLite library
 Summary(pl.UTF-8):	Biblioteka SQLite
 Name:		sqlite
 Version:	2.8.17
-Release:	6
+Release:	7
 License:	LGPL
 Group:		Libraries
 # Source0Download: http://sqlite.org/download.html
